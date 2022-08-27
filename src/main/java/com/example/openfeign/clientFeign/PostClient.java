@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 /**
- * Interface para implementar os métodos que serão usados no desenvolvimento.
+ *  Interface para implementar os métodos que serão usados no desenvolvimento.
  * @author Rubens Lima
  * @version 1.0
  * @since Release 01 da aplicação
@@ -39,7 +39,7 @@ public interface PostClient {
     PostDTO getPostById(@RequestParam(value = "id") Integer id);
 
     /**
-     * Método get que retorna uma lista de comentarios por ID
+     * Método get que retorna uma lista de comentários por ID
      * @author Rubens Lima
      * @param id
      * @return Lista de posts
@@ -49,7 +49,7 @@ public interface PostClient {
     List<PostDTO> getPostByIdAndComments(@RequestParam(value = "id") Integer id);
 
     /**
-     * Método post para salvar um comentario
+     * Método post para salvar um comentário
      * @author Rubens Lima
      * @param postDTO
      * @version 1.0

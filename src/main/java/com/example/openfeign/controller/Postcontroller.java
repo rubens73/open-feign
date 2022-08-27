@@ -15,7 +15,7 @@ import java.util.List;
 @RequestMapping("/posts")
 public class Postcontroller {
 
-    private static final Logger logger = LogManager.getLogger(Postcontroller.class);
+    private static final Logger logger = LogManager.getLogger(Postcontroller.class.getName());
 
     private PostClient postClient;
 
@@ -34,11 +34,13 @@ public class Postcontroller {
 
     @GetMapping(value = "/{id}/comments")
     public List<PostDTO> getAllPostComments(@PathVariable Integer id) {
+        logger.info("Acessando posts por id nos comentarios");
         return postClient.getPostByIdAndComments(id);
     }
 
     @PostMapping
     void postPost(@RequestBody PostDTO postDTO){
+        logger.info("Salvar um post");
         postClient.postPost(postDTO);
     }
 }

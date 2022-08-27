@@ -2,12 +2,12 @@ package com.example.openfeign.clientFeign;
 
 import com.example.openfeign.DTO.PostDTO;
 import feign.Feign;
-import feign.jackson.JacksonDecoder;
-import feign.jackson.JacksonEncoder;
 import feign.mock.HttpMethod;
 import feign.mock.MockClient;
 import org.junit.jupiter.api.Test;
 import org.springframework.cloud.openfeign.support.SpringMvcContract;
+import feign.jackson.JacksonDecoder;
+import feign.jackson.JacksonEncoder;
 
 import java.util.List;
 
