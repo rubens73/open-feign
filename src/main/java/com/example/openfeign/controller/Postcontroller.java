@@ -38,7 +38,7 @@ public class Postcontroller {
         return postClient.getPostByIdAndComments(id);
     }
 
-    @PostMapping
+    @PostMapping(value = "/posts")
     void postPost(@RequestBody PostDTO postDTO){
         logger.info("Salvar um post");
         postClient.postPost(postDTO);

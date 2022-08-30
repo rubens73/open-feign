@@ -1,11 +1,12 @@
 package com.example.openfeign.clientFeign;
 
 import com.example.openfeign.DTO.PostDTO;
+import com.example.openfeign.config.FeignConfiguration;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -15,7 +16,7 @@ import java.util.List;
  * @version 1.0
  * @since Release 01 da aplicação
  */
-@FeignClient(name = "post", url = "${api.post.url}")
+@FeignClient(name = "post", url = "${api.post.url}", configuration = FeignConfiguration.class)
 public interface PostClient {
 
     /**
@@ -36,7 +37,7 @@ public interface PostClient {
      * @version 1.0
      * */
     @GetMapping(value = "/posts/{id}")
-    PostDTO getPostById(@RequestParam(value = "id") Integer id);
+    PostDTO getPostById(@PathVariable(value = "id") Integer id);
 
     /**
      * Método get que retorna uma lista de comentários por ID
@@ -46,7 +47,7 @@ public interface PostClient {
      * @version 1.0
      * */
     @GetMapping(value = "/posts/{id}/comments")
-    List<PostDTO> getPostByIdAndComments(@RequestParam(value = "id") Integer id);
+    List<PostDTO> getPostByIdAndComments(@PathVariable(value = "id") Integer id);
 
     /**
      * Método post para salvar um comentário
@@ -54,7 +55,7 @@ public interface PostClient {
      * @param postDTO
      * @version 1.0
      * */
-    @PostMapping
+    @PostMapping(value = "/posts")
     void postPost(@RequestBody PostDTO postDTO);
 
 
